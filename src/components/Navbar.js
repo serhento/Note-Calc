@@ -2,21 +2,11 @@ import React from 'react';
 import {NavLink} from "react-router-dom";
 
 import './Navbar.scss'
+import DB from '../store/DB'
 
 export const Navbar =()=>{
 
-    const list = [
-        {
-            "id": 0,
-            "title": "Notes",
-            "to": "/notes"
-        },
-        {
-            "id": 1,
-            "title": "Calc",
-            "to": "/calc"
-        }
-    ];
+    const list = DB.list;
 
     return(
         <div className='navbar'>
