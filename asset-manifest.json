@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Note-Calc/static/css/main.ea01e7f3.chunk.css",
+    "main.js": "/Note-Calc/static/js/main.7917a89a.chunk.js",
+    "main.js.map": "/Note-Calc/static/js/main.7917a89a.chunk.js.map",
+    "runtime-main.js": "/Note-Calc/static/js/runtime-main.11440b5d.js",
+    "runtime-main.js.map": "/Note-Calc/static/js/runtime-main.11440b5d.js.map",
+    "static/js/2.2db78177.chunk.js": "/Note-Calc/static/js/2.2db78177.chunk.js",
+    "static/js/2.2db78177.chunk.js.map": "/Note-Calc/static/js/2.2db78177.chunk.js.map",
+    "index.html": "/Note-Calc/index.html",
+    "precache-manifest.9d211cd5199d83c8359c2a7d82ab169f.js": "/Note-Calc/precache-manifest.9d211cd5199d83c8359c2a7d82ab169f.js",
+    "service-worker.js": "/Note-Calc/service-worker.js",
+    "static/css/main.ea01e7f3.chunk.css.map": "/Note-Calc/static/css/main.ea01e7f3.chunk.css.map",
+    "static/js/2.2db78177.chunk.js.LICENSE.txt": "/Note-Calc/static/js/2.2db78177.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.11440b5d.js",
+    "static/js/2.2db78177.chunk.js",
+    "static/css/main.ea01e7f3.chunk.css",
+    "static/js/main.7917a89a.chunk.js"
+  ]
+}
