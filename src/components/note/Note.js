@@ -1,7 +1,7 @@
 import React from 'react';
 import {ActionBtn} from "./ActionBtn";
 
-export const Note =({task, doneTask, deleteTask})=> {
+export const Note =({task})=> {
 
     const taskDone = 'task ' + (task.done ? 'task-done' : '');
 
@@ -11,7 +11,7 @@ export const Note =({task, doneTask, deleteTask})=> {
                 <p>{task.title}</p>
                 <small>{task.date}</small>
             </div>
-            <ActionBtn task={task} doneTask={doneTask} deleteTask={deleteTask}/>
+            <ActionBtn task={task}/>
         </div>
     )
 };

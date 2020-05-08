@@ -1,6 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import {Context} from "./context";
 
-export const TaskInput = ({addTask}) => {
+export const TaskInput = () => {
+
+    const {addTask} = useContext(Context);
 
     const [input, setInput] = useState('');
 

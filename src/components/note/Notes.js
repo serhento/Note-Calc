@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 import {Note} from "./Note";
 import {TaskInput} from "./TaskInput";
+import {Context} from "./context";
 
 export const Notes =()=>{
 
@@ -9,9 +10,6 @@ export const Notes =()=>{
     const tasks = [];
 
     const [value, setValue] = useState(tasks);
-
-    const activeTasks = value.filter(task => !task.done);
-    const doneTasks = value.filter(task => task.done);
 
     useEffect(()=> {
         const raw = localStorage.getItem('value') || [];
@@ -22,15 +20,17 @@ export const Notes =()=>{
         localStorage.setItem('value', JSON.stringify(value));
     }, [value]);
 
-    const doneTask = (index) => {
-        value[index].done = true;
+    const doneTask = (id) => {
+        value.map(item => {
+            id === item.id ? item.done = true : value.done = false;
+        });
         setValue([...value]);
-
     };
 
-    const deleteTask = (index) => {
-        const newList = value.filter(item => item.id !== value[index].id);
-        setValue(newList);
+    const deleteTask = id =>{
+        setValue(value.filter(item => {
+            return item.id !== id;
+        }));
     };
 
     const addTask = task =>{
@@ -38,30 +38,32 @@ export const Notes =()=>{
         setValue(newTaskItem);
     };
 
-    console.log(activeTasks);
-
     const activeTasksNumber = (value.filter(task => !task.done)).length;
 
     return (
-        <div className='App'>
-            <h1 className="top">Active tasks: {activeTasksNumber}</h1>
-            {value.map((task, index) => {
-                if (!task.done) {
-                    return(
-                        <Note deleteTask={()=> deleteTask(index)} doneTask={()=> doneTask(index)} key={task.id} task={task}/>
-                    )
-                }
+        <Context.Provider value={{
+            deleteTask, addTask, doneTask
+        }}>
+            <div className='App'>
+                <h1 className="top">Active tasks: {activeTasksNumber}</h1>
+                {value.map((task, index) => {
+                    if (!task.done) {
+                        return(
+                            <Note key={task.id} task={task}/>
+                        )
+                    }
 
-            })}
-            {value.map((task, index) => {
-                if (task.done) {
-                    return(
-                        <Note deleteTask={()=> deleteTask(index)} doneTask={()=> doneTask(index)} key={task.id} task={task}/>
-                    )
-                }
+                })}
+                {value.map((task) => {
+                    if (task.done) {
+                        return(
+                            <Note key={task.id} task={task}/>
+                        )
+                    }
 
-            })}
-            <TaskInput addTask={addTask}/>
-        </div>
+                })}
+                <TaskInput />
+            </div>
+        </Context.Provider>
     );
 };
