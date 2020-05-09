@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/Note-Calc/static/css/main.ea01e7f3.chunk.css",
-    "main.js": "/Note-Calc/static/js/main.16d05dae.chunk.js",
-    "main.js.map": "/Note-Calc/static/js/main.16d05dae.chunk.js.map",
+    "main.js": "/Note-Calc/static/js/main.8c725ac3.chunk.js",
+    "main.js.map": "/Note-Calc/static/js/main.8c725ac3.chunk.js.map",
     "runtime-main.js": "/Note-Calc/static/js/runtime-main.11440b5d.js",
     "runtime-main.js.map": "/Note-Calc/static/js/runtime-main.11440b5d.js.map",
-    "static/js/2.2db78177.chunk.js": "/Note-Calc/static/js/2.2db78177.chunk.js",
-    "static/js/2.2db78177.chunk.js.map": "/Note-Calc/static/js/2.2db78177.chunk.js.map",
+    "static/js/2.44ea3ddd.chunk.js": "/Note-Calc/static/js/2.44ea3ddd.chunk.js",
+    "static/js/2.44ea3ddd.chunk.js.map": "/Note-Calc/static/js/2.44ea3ddd.chunk.js.map",
     "index.html": "/Note-Calc/index.html",
-    "precache-manifest.50aee71890ec048591ed4a331e9db585.js": "/Note-Calc/precache-manifest.50aee71890ec048591ed4a331e9db585.js",
+    "precache-manifest.e7d86b65ea2cbacc2fdc32a665ba571a.js": "/Note-Calc/precache-manifest.e7d86b65ea2cbacc2fdc32a665ba571a.js",
     "service-worker.js": "/Note-Calc/service-worker.js",
     "static/css/main.ea01e7f3.chunk.css.map": "/Note-Calc/static/css/main.ea01e7f3.chunk.css.map",
-    "static/js/2.2db78177.chunk.js.LICENSE.txt": "/Note-Calc/static/js/2.2db78177.chunk.js.LICENSE.txt"
+    "static/js/2.44ea3ddd.chunk.js.LICENSE.txt": "/Note-Calc/static/js/2.44ea3ddd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.11440b5d.js",
-    "static/js/2.2db78177.chunk.js",
+    "static/js/2.44ea3ddd.chunk.js",
     "static/css/main.ea01e7f3.chunk.css",
-    "static/js/main.16d05dae.chunk.js"
+    "static/js/main.8c725ac3.chunk.js"
   ]
 }
