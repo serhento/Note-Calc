@@ -1,15 +1,14 @@
 import React, {useState, useContext} from 'react';
-import {Context} from "./context";
+import {FirebaseContext} from "../context/firebase/firebaseContext";
 
 export const TaskInput = () => {
 
-    const {addTask} = useContext(Context);
-
     const [input, setInput] = useState('');
+    const firebase = useContext(FirebaseContext);
 
     const addTaskItem = () =>{
         if (input){
-            addTask(input);
+            firebase.addTask(input)
         }
         setInput(input);
         setInput('');

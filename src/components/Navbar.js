@@ -13,10 +13,9 @@ export const Navbar =()=>{
             <div>Calc&Notes</div>
 
             <ul>
+
                 {list.map(item=> <li key={item.id}><NavLink  to={item.to}>{item.title}</NavLink></li>)}
 
-                {/*<li><NavLink to='/'>{x[0]}</NavLink></li>*/}
-                {/*<li><NavLink to='/calc'>Calc</NavLink></li>*/}
             </ul>
         </div>
     )

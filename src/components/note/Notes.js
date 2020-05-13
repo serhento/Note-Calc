@@ -1,52 +1,30 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useContext} from 'react';
 
 import {Note} from "./Note";
 import {TaskInput} from "./TaskInput";
-import {Context} from "./context";
+import {Context} from "../context/context";
+import {FirebaseContext} from "../context/firebase/firebaseContext";
 
 export const Notes =()=>{
 
-    //const tasks = DB.tasks;
-    const tasks = [];
-
-    const [value, setValue] = useState(tasks);
+    const {notes, fetchNotes} = useContext(FirebaseContext);
 
     useEffect(()=> {
-        const raw = localStorage.getItem('value') || [];
-        setValue(JSON.parse(raw))
+        fetchNotes();
+        // eslint-disable-next-line
     }, []);
 
-    useEffect(()=> {
-        localStorage.setItem('value', JSON.stringify(value));
-    }, [value]);
+    const activeTasksNumber = (notes.filter(item => !item.done)).length;
 
-    const doneTask = (id) => {
-        value.map(item => {
-            id === item.id ? item.done = true : value.done = false;
-        });
-        setValue([...value]);
-    };
-
-    const deleteTask = id =>{
-        setValue(value.filter(item => {
-            return item.id !== id;
-        }));
-    };
-
-    const addTask = task =>{
-        const newTaskItem = [...value, {id: value.length, date: new Date().toLocaleDateString(), title: task, done: false}];
-        setValue(newTaskItem);
-    };
-
-    const activeTasksNumber = (value.filter(task => !task.done)).length;
 
     return (
         <Context.Provider value={{
-            deleteTask, addTask, doneTask
+
         }}>
             <div className='App'>
                 <h1 className="top">Active tasks: {activeTasksNumber}</h1>
-                {value.map((task, index) => {
+                <TaskInput />
+                {notes.map((task) => {
                     if (!task.done) {
                         return(
                             <Note key={task.id} task={task}/>
@@ -54,7 +32,7 @@ export const Notes =()=>{
                     }
 
                 })}
-                {value.map((task) => {
+                {notes.map((task) => {
                     if (task.done) {
                         return(
                             <Note key={task.id} task={task}/>
@@ -62,7 +40,6 @@ export const Notes =()=>{
                     }
 
                 })}
-                <TaskInput />
             </div>
         </Context.Provider>
     );
