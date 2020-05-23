@@ -29,7 +29,7 @@ export const Notes =()=>{
                         return(
                             <Note key={task.id} task={task}/>
                         )
-                    }
+                    } return null
 
                 })}
                 {notes.map((task) => {
@@ -37,7 +37,7 @@ export const Notes =()=>{
                         return(
                             <Note key={task.id} task={task}/>
                         )
-                    }
+                    } return null
 
                 })}
             </div>

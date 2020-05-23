@@ -28,32 +28,9 @@ export const FirebaseState =({children}) =>{
         }
     };
 
-    const doneTask = async id =>{
-        // await axios.patch(`${url}/notes/${id}.done`, {done: true});
-        //
-        // const res = await axios.get(`${url}/notes.json`);
-        // console.log(res)
-        const res = await axios.get(`${url}/notes/${id}.json`);
-
-        res.data.done = !res.data.done;
-        deleteTask(id);
-        const res1 = await axios.post(`${url}/notes.json`, res.data);
-        const payload = {
-            ...res.data,
-            id: res1.data.name
-        };
-
-        dispatch({
-            type: "DONE_TASK",
-            payload: payload
-        });
-
-        fetchNotes()
-    };
-
     const addTask = async task =>{
         const note = {
-            date: new Date().toLocaleDateString(), title: task, done: false
+            date: new Date().toLocaleDateString(), title: task, done: false, id: new Date()
         };
 
         const res = await axios.post(`${url}/notes.json`, note);
@@ -68,7 +45,19 @@ export const FirebaseState =({children}) =>{
         });
     };
 
+    const doneTask = async id =>{
+        const res = await axios.get(`${url}/notes/${id}.json`);
+        res.data.done = !res.data.done;
+        await axios.put(`${url}/notes/${id}.json`, res.data);
+
+        dispatch({
+            type: "DONE_TASK",
+            payload: id
+        });
+    };
+
     const deleteTask = async id =>{
+
         await axios.delete(`${url}/notes/${id}.json`);
 
         dispatch({
